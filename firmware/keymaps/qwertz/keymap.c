@@ -29,8 +29,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         DE_Q,    DE_W,    DE_E,    DE_R,    DE_T,                                         DE_Z,    DE_U,    DE_I,    DE_O,    DE_P,
         DE_A,    DE_S,    DE_D,    DE_F,    DE_G,                                         DE_H,    DE_J,    DE_K,    DE_L,    DE_UDIA,
-        DE_Y,    DE_X,    DE_C,    DE_V,    DE_B,                                         DE_B,    DE_N,    DE_M,    DE_ODIA, DE_ADIA,
-                 _______, _______,                                                                          _______, _______,
+        DE_Y,    DE_X,    DE_C,    DE_V,    DE_B,                                         DE_N,    DE_M,    DE_COMM, DE_DOT,  DE_MINS,
+                 KC_LSFT, _______,                                                                             KC_LSFT, KC_LSFT,
                                    CTL_ESC, RS_SPC,  KC_LGUI,                    LOWER,   SMB_BSP, SFT_ENT,
                                             KC_DEL,  KC_LSFT,                    KC_LALT, KC_BSPC
     ),
@@ -67,13 +67,8 @@ static uint8_t combo_state = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
-#ifdef LEFT
-    uint16_t modifier = KC_LGUI;
-    uint16_t trigger = DE_Z;
-#else
     uint16_t modifier = LOWER;
-    uint16_t trigger = DE_ADIA;
-#endif
+    uint16_t trigger = DE_MINS;
 
     if (keycode == modifier) {
       if (record->event.pressed)
