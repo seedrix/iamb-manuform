@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* choose which side of the keyboard to build the firmware for */
-//#define LEFT
+#define LEFT
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID    0x444D
@@ -53,20 +53,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS 10
 #define MATRIX_COLS 5
 
-/* wiring of left half */
-#ifdef LEFT
-#define DIODE_DIRECTION ROW2COL
+#define DIODE_DIRECTION COL2ROW
 #define MATRIX_ROW_PINS { F0, F5, F6, C7, C6 }
 #define MATRIX_COL_PINS { F7, D4, D5, D2, D3 }
 #define RGB_DI_PIN F1
-
-/* wiring of right half */
-#else
-#define DIODE_DIRECTION COL2ROW
-#define MATRIX_ROW_PINS { B1, B2, D3, D6, D7 }
-#define MATRIX_COL_PINS { C6, C7, D4, B5, B4 }
-#define RGB_DI_PIN B0
-#endif
 
 /*#define RGBLIGHT_LED_MAP { 1, 2, 3, 4, 5, \
                            6, 7, 8, 9, 10, \
@@ -75,7 +65,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                            21, 22, 23 }*/
 
 /* pin to detect handedness */
-#define SPLIT_HAND_PIN D6
+//#define SPLIT_HAND_PIN D6
 
 /* typing behaviour */
 #define PERMISSIVE_HOLD
@@ -92,3 +82,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* temporary */
 #define SPLIT_USB_DETECT
+#define MASTER_RIGHT
